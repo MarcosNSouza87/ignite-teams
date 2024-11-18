@@ -1,20 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as RN from 'react-native';
+import Groups from './src/screens/Groups';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+	return (
+		<RN.SafeAreaView style={styles.container}>
+			<StatusBar style="auto" />
+      <Groups />
+		</RN.SafeAreaView>
+	);
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+const styles = RN.StyleSheet.create({
+	container: {
+		flex: 1,
+	},
 });
