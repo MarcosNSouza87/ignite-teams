@@ -1,15 +1,10 @@
 import React from 'react';
-import * as RN from 'react-native';
-import styles from './styles';
+import * as S from './styles';
 
-const Groups = () => {
+export function Groups () {
   return(
-    <RN.View style={styles.container}>
-      <RN.View>
-        <RN.Text>Ignite 2</RN.Text>
-      </RN.View>
-    </RN.View>
+    <S.Container>
+        <S.Title>Ignite 2 - Groups</S.Title>
+    </S.Container>
   )
 }
-
-export default Groups
