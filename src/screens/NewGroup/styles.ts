@@ -18,3 +18,7 @@ export const Icon = styled(UsersThree).attrs(({ theme }) => ({
 }))`
 	align-self: center;
 `;
+
+export const Space = styled.View`
+	height: 16px;
+`;
