@@ -6,9 +6,17 @@ import { HighLight } from '@components/HighLight';
 import { GroupCard } from '@components/GroupCard';
 import { ListEmpty } from '@components/ListEmpty';
 import { Button } from '@components/Button';
+import { useNavigation } from '@react-navigation/native';
 
 export function Groups() {
 	const [groups, setGroups] = R.useState<string[]>([]);
+
+	const navigation = useNavigation();
+
+	function handleNewGroup () {
+		// navigation.navigate('');
+	}
+
 	return (
 		<S.Container>
 			<Header />

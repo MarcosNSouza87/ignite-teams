@@ -1,6 +1,5 @@
 import { StatusBar } from 'react-native';
-import { Players } from './src/screens/Players';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components/native';
 import {
 	useFonts,
 	Roboto_400Regular,
@@ -8,6 +7,7 @@ import {
 } from '@expo-google-fonts/roboto';
 import theme from './src/theme';
 import { Loading } from './src/components/Loading';
+import { Routes } from './src/routes';
 
 export default function App() {
 	const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold });
@@ -19,7 +19,7 @@ export default function App() {
         backgroundColor="#202024"
          
       />
-			{fontsLoaded ? <Players /> : <Loading />}
+			{fontsLoaded ? <Routes /> : <Loading />}
 		</ThemeProvider>
 	);
 }

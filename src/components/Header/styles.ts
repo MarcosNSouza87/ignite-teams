@@ -18,6 +18,6 @@ export const BackIcon = styled(CaretLeft).attrs(({theme})=>({
 }))``;
 
 export const Logo = styled.Image`
-	width: 46px;
-	height: 55px;
+	width: 56px;
+	height: 65px;
 `;
