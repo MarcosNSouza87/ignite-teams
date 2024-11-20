@@ -8,10 +8,11 @@ import { playerAddByGroup } from './playerAddByGroup';
 export async function playerRemoveByGroup(playerName: string, group: string) {
 	try {
 		const storage = await playerGetByGroup(group);
-		const filtered = storage.filter((player) => player.name !== playerName);
-
+		const filtered = storage.filter(player => player.name !== playerName);
 		const updatePlayers = JSON.stringify(filtered);
 
 		await AsyncStorage.setItem(`${PLAYER_COLLECTION}-${group}`, updatePlayers);
-	} catch (error) {}
+	} catch (error) {
+    throw error;
+  }
 }

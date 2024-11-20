@@ -15,6 +15,7 @@ import { playerAddByGroup } from '@storage/player/playerAddByGroup';
 import { playerGetByGroup } from '@storage/player/playlerGetByGroup';
 import { playerGetGroupAndTeam } from '@storage/player/playerGetByGroupAndTeam';
 import { PlayerStorageDTO } from '@storage/player/PlayerStorageDTO';
+import { playerRemoveByGroup } from '@storage/player/playerRemoveByGroup';
 
 interface IPlayers {}
 
@@ -66,6 +67,15 @@ export function Players({}: IPlayers) {
 		} catch (error) {}
 	}
 
+	async function handlePlayerRemove(playerName:string) {
+		try {
+			await playerRemoveByGroup(playerName, group);
+			fetchPlayerByTeam();
+		} catch (error) {
+			RN.Alert.alert('Remover pessoa', 'Nao foi possivel remover essa pessoa.')
+		}
+	}
+
 	useEffect(() => {
 		fetchPlayerByTeam();
 	}, [team]);
@@ -106,7 +116,7 @@ export function Players({}: IPlayers) {
 				data={players}
 				keyExtractor={(item) => item.name}
 				renderItem={({ item }) => (
-					<PlayerCard name={item.name} onRemove={() => {}} />
+					<PlayerCard name={item.name} onRemove={() => handlePlayerRemove(item.name)} />
 				)}
 				showsVerticalScrollIndicator={false}
 				contentContainerStyle={[

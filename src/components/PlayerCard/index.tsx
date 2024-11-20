@@ -6,12 +6,12 @@ interface IPlayerCard {
 	name: string;
   onRemove:() => void;
 }
-export function PlayerCard({ name }: IPlayerCard) {
+export function PlayerCard({ name,onRemove }: IPlayerCard) {
 	return (
 		<S.Container>
 			<S.Icon name="person"></S.Icon>
 			<S.Name>{name}</S.Name>
-      <ButtonIcon icon="close" type="SECONDARY" />
+      <ButtonIcon icon="close" type="SECONDARY" onPress={onRemove}/>
 		</S.Container>
 	);
 }
