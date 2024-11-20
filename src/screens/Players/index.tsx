@@ -68,8 +68,11 @@ export function Players({}: IPlayers) {
 			setIsLoading(true);
 			const playersByTeam = await playerGetGroupAndTeam(group, team);
 			setPlayers(playersByTeam);
+		} catch (error) {
+			RN.Alert.alert('Pessoas', 'Não foi possivel carregas as pessoas');
+		}finally{
 			setIsLoading(false);
-		} catch (error) {}
+		}
 	}
 
 	async function handlePlayerRemove(playerName: string) {
@@ -91,7 +94,7 @@ export function Players({}: IPlayers) {
 	}
 
 	async function handleGroupRemove() {
-		RN.Alert.alert('Remover', 'Deseja remover o grupo?', [
+		RN.Alert.alert('Remover', 'Deseja remover a turma?', [
 			{ text: 'Não', style: 'cancel' },
 			{ text: 'Sim', onPress: () => groupRemove() },
 		]);
@@ -156,7 +159,7 @@ export function Players({}: IPlayers) {
 					)}
 				/>
 			)}
-			<Button title="Remover Turma" type="SECONDARY" onPress={handleGroupRemove} />
+			<Button title="Remover turma" type="SECONDARY" onPress={handleGroupRemove} />
 		</S.Container>
 	);
 }
